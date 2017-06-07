@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/graphics">
+        <file>Bear.png</file>
+        <file>Masha.png</file>
+        <file>raspberry.png</file>
+    </qresource>
+</RCC>
