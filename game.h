@@ -13,6 +13,7 @@ class Game : public QGraphicsView
     Q_OBJECT
 
 public:
+    QGraphicsScene * scene;
     explicit Game(QWidget *parent = 0);
     ~Game();
 

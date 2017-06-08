@@ -1,14 +1,15 @@
 #include "addraspberry.h"
-#include "figurea.h"
+#include "raspberry.h"
 #include <QGraphicsScene>
 
-AddRaspberry::AddRaspberry()
+AddRaspberry::AddRaspberry(QGraphicsItem *parent) : QGraphicsPixmapItem(parent)
 {
 
 }
 
 void AddRaspberry::makeRaspberry()
 {
-    Figure * rasp = new Figure(QString(":/graphics/raspberry.png"));
+    Raspberry * rasp = new Raspberry();
+    scene()->addItem(rasp);
 
 }

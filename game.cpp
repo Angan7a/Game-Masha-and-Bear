@@ -5,16 +5,17 @@
 #include "masha.h"
 #include "raspberry.h"
 #include <QTimer>
+#include "addraspberry.h"
 
 Game::Game(QWidget *parent)
     //:    QMainWindow(parent),
 
 {
-    QGraphicsScene * scene = new QGraphicsScene();
+    scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600);
     Figure * masha = new Masha(QString(":/graphics/Masha.png"));
     Figure * bear = new Figure(QString(":/graphics/Bear.png"));
-    Figure * raspberry = new Raspberry();
+    //Figure * raspberry = new Raspberry();
     masha->setPos(100, 100);
     masha->setFlag(QGraphicsItem::ItemIsFocusable);
     masha->setFocus();
@@ -25,12 +26,13 @@ Game::Game(QWidget *parent)
     bear->setFlag(QGraphicsItem::ItemIsFocusable);
     bear->setFocus();
     scene->addItem(bear);
+    AddRaspberry * rasp = new AddRaspberry();
 
-    scene->addItem(raspberry);
+    scene->addItem(rasp);
 
     QTimer * timer = new QTimer(this);
-    //connect(timer, SIGNAL(timeout()),
-
+    connect(timer, SIGNAL(timeout()), rasp, SLOT(makeRaspberry()));
+    timer->start(1000);
     setScene(scene);
 }
 
